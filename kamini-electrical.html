@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamini Electrical & Electrician - Gurgaon</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --yellow: #FFB800;
+    --yellow-dark: #E0A000;
+    --orange: #FF6B00;
+    --dark: #1A1A1A;
+    --dark2: #2C2C2C;
+    --white: #FFFFFF;
+    --gray: #F5F5F5;
+    --gray2: #EBEBEB;
+    --text: #333333;
+    --text-light: #666666;
+    --green: #00A550;
+    --red: #E53935;
+  }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: #F7F7F7;
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ---- TOP BAR ---- */
+  .topbar {
+    background: var(--dark);
+    color: #ccc;
+    font-size: 12px;
+    padding: 6px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar span { display: flex; align-items: center; gap: 5px; }
+
+  /* ---- HEADER ---- */
+  header {
+    background: var(--white);
+    border-bottom: 3px solid var(--yellow);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .logo-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--yellow);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+  .logo-text h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+  .logo-text h1 span { color: var(--orange); }
+  .logo-text p {
+    font-size: 12px;
+    color: var(--text-light);
+    font-weight: 400;
+  }
+
+  .header-cta {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+  }
+  .call-btn {
+    background: var(--yellow);
+    color: var(--dark);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+  }
+  .call-btn:hover { background: var(--yellow-dark); }
+
+  /* ---- HERO / INFO CARD ---- */
+  .hero {
+    background: var(--dark);
+    color: white;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '⚡';
+    position: absolute;
+    right: -10px;
+    top: -20px;
+    font-size: 140px;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  .hero-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .hero-main { flex: 1; min-width: 200px; }
+  .hero-main h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--yellow);
+    margin-bottom: 6px;
+  }
+  .hero-main p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+  }
+  .badge-open {
+    background: var(--green);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ---- QUICK INFO CARDS ---- */
+  .quick-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    padding: 16px 20px;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray2);
+  }
+  .info-card {
+    background: var(--gray);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .info-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .info-card h4 {
+    font-size: 11px;
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+  .info-card p {
+    font-size: 13px;
+    color: var(--dark);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .info-card p small {
+    font-weight: 400;
+    color: var(--text-light);
+    font-size: 12px;
+  }
+
+  /* ---- TIMETABLE ---- */
+  .section { padding: 20px 20px; }
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title span {
+    background: var(--yellow);
+    width: 4px;
+    height: 20px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .time-row {
+    display: flex;
+    gap: 10px;
+  }
+  .time-card {
+    flex: 1;
+    background: var(--white);
+    border: 1.5px solid var(--gray2);
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .time-card .t-label {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+  .time-card .t-time {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--dark);
+  }
+  .time-card .t-badge {
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 4px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+  .t-badge.morning { background: #FFF3CD; color: #856404; }
+  .t-badge.evening { background: #D1ECF1; color: #0C5460; }
+
+  .home-service-banner {
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    color: var(--dark);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .home-service-banner span { font-size: 22px; }
+
+  /* ---- SERVICES ---- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1.5px solid var(--gray2);
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .service-card:hover {
+    border-color: var(--yellow);
+    transform: translateY(-2px);
+  }
+  .service-card .s-icon { font-size: 32px; margin-bottom: 8px; }
+  .service-card .s-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  /* ---- CONTACT ---- */
+  .contact-section {
+    background: var(--dark2);
+    padding: 24px 20px;
+    color: white;
+    margin-top: 8px;
+  }
+  .contact-section .section-title { color: var(--yellow); }
+  .contact-section .section-title span { background: var(--orange); }
+
+  .phone-cards { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .phone-card {
+    background: #3A3A3A;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .phone-card .ph-num {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+  .phone-card .ph-label { font-size: 12px; color: #aaa; margin-top: 2px; }
+  .phone-card a {
+    background: var(--yellow);
+    color: var(--dark);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .address-card {
+    background: #3A3A3A;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .address-card .addr-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .address-card .addr-text { font-size: 14px; color: #ddd; line-height: 1.6; }
+  .address-card .addr-text strong { color: white; font-size: 15px; }
+
+  /* ---- REVIEWS ---- */
+  .reviews-section { padding: 20px; background: var(--white); }
+  .stars-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .big-rating {
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--dark);
+    line-height: 1;
+  }
+  .stars { font-size: 20px; color: var(--yellow); letter-spacing: 2px; }
+  .rating-sub { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+
+  .reviews-list { display: flex; flex-direction: column; gap: 10px; }
+  .review-card {
+    background: var(--gray);
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .reviewer-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .reviewer-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: white;
+    flex-shrink: 0;
+  }
+  .reviewer-name { font-weight: 600; font-size: 14px; color: var(--dark); }
+  .reviewer-date { font-size: 11px; color: var(--text-light); }
+  .review-stars { font-size: 13px; color: var(--yellow); }
+  .review-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: var(--dark);
+    color: #888;
+    text-align: center;
+    padding: 16px;
+    font-size: 12px;
+  }
+  footer span { color: var(--yellow); }
+
+  /* ---- FLOATING CALL ---- */
+  .float-call {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--green);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(0,165,80,0.4);
+    z-index: 200;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 16px rgba(0,165,80,0.4); }
+    50% { box-shadow: 0 4px 24px rgba(0,165,80,0.7); }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>📍 Gurgaon, Sector 9 • Basai Chowk</span>
+  <span>⚡ Home Service Available</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-icon">⚡</div>
+  <div class="logo-text">
+    <h1>Kamini <span>Electrical</span></h1>
+    <p>Electrician & Repair Services</p>
+  </div>
+  <div class="header-cta">
+    <a href="tel:9761152069" class="call-btn">📞 Call Now</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-row">
+    <div class="hero-main">
+      <div class="badge-open">● OPEN TODAY</div>
+      <h2>Kamini Electrical & Electrician</h2>
+      <p>Experienced electrical repair & home service provider in Gurgaon. Fan, Motor, Cooler, AC, Fridge, Washing Machine & House Wiring — all under one roof.</p>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK INFO -->
+<div class="quick-info">
+  <div class="info-card">
+    <div class="info-icon">📍</div>
+    <div>
+      <h4>Address</h4>
+      <p>Gali No. 2, House No. 106<br><small>Basai Chowk, Sector 9, Gurgaon</small></p>
+    </div>
+  </div>
+  <div class="info-card">
+    <div class="info-icon">🕗</div>
+    <div>
+      <h4>Timing</h4>
+      <p>8:30 AM – Evening<br><small>On Time, Every Day</small></p>
+    </div>
+  </div>
+  <div class="info-card">
+    <div class="info-icon">🏠</div>
+    <div>
+      <h4>Service Type</h4>
+      <p>Home Service<br><small>Anytime Available</small></p>
+    </div>
+  </div>
+</div>
+
+<!-- TIMETABLE -->
+<div class="section" style="background: white; border-bottom: 1px solid #ebebeb;">
+  <div class="section-title"><span></span> Service Timing</div>
+  <div class="time-row">
+    <div class="time-card">
+      <div class="t-label">🌅 Morning (Subah)</div>
+      <div class="t-time">8:30</div>
+      <div>AM</div>
+      <div class="t-badge morning">On Time ✓</div>
+    </div>
+    <div class="time-card">
+      <div class="t-label">🌆 Evening (Sham)</div>
+      <div class="t-time">Sham</div>
+      <div style="font-size:12px;color:#666;">Till evening</div>
+      <div class="t-badge evening">On Time ✓</div>
+    </div>
+  </div>
+  <div class="home-service-banner">
+    <span>🏠</span>
+    Home Service Available — Anytime Call Karein!
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section" style="background: #fafafa; border-bottom: 1px solid #ebebeb;">
+  <div class="section-title"><span></span> Our Services</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="s-icon">🌀</div>
+      <div class="s-name">Fan Repair</div>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">⚙️</div>
+      <div class="s-name">Motor Repair</div>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">💨</div>
+      <div class="s-name">Cooler Repair</div>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">🫧</div>
+      <div class="s-name">Washing Machine</div>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">🔌</div>
+      <div class="s-name">House Wiring</div>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">🧊</div>
+      <div class="s-name">Fridge Service</div>
+    </div>
+    <div class="service-card">
+      <div class="s-icon">❄️</div>
+      <div class="s-name">AC Service</div>
+    </div>
+    <div class="service-card" style="border-color: #FFB800; background: #FFFDF0;">
+      <div class="s-icon">🏠</div>
+      <div class="s-name" style="color: #E0A000;">Home Service</div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="reviews-section">
+  <div class="section-title"><span></span> Customer Reviews</div>
+  <div class="stars-header">
+    <div>
+      <div class="big-rating">4.8</div>
+      <div class="stars">★★★★★</div>
+      <div class="rating-sub">Based on 47 reviews</div>
+    </div>
+    <div style="flex:1; padding-left: 12px;">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+        <div style="font-size:12px; width:12px; color:#555;">5</div>
+        <div style="flex:1; height:8px; background:#eee; border-radius:4px; overflow:hidden;">
+          <div style="width:85%; height:100%; background:var(--yellow); border-radius:4px;"></div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+        <div style="font-size:12px; width:12px; color:#555;">4</div>
+        <div style="flex:1; height:8px; background:#eee; border-radius:4px; overflow:hidden;">
+          <div style="width:12%; height:100%; background:var(--yellow); border-radius:4px;"></div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="font-size:12px; width:12px; color:#555;">3</div>
+        <div style="flex:1; height:8px; background:#eee; border-radius:4px; overflow:hidden;">
+          <div style="width:3%; height:100%; background:var(--yellow); border-radius:4px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-list">
+    <div class="review-card">
+      <div class="reviewer-row">
+        <div class="reviewer-avatar" style="background:#2196F3;">RS</div>
+        <div>
+          <div class="reviewer-name">Rahul Sharma</div>
+          <div class="reviewer-date">2 weeks ago</div>
+        </div>
+        <div class="review-stars" style="margin-left:auto;">★★★★★</div>
+      </div>
+      <div class="review-text">Bahut achha kaam kiya. Cooler repair sahi time pe ho gaya. Ghar pe aake fix kiya, time ke pakke hain. Bilkul recommend karunga!</div>
+    </div>
+
+    <div class="review-card">
+      <div class="reviewer-row">
+        <div class="reviewer-avatar" style="background:#E91E63;">PK</div>
+        <div>
+          <div class="reviewer-name">Priya Kaur</div>
+          <div class="reviewer-date">1 month ago</div>
+        </div>
+        <div class="review-stars" style="margin-left:auto;">★★★★★</div>
+      </div>
+      <div class="review-text">AC service karvaya, bahut fast aur clean work kiya. Rates bhi reasonable hain. Home service is very convenient!</div>
+    </div>
+
+    <div class="review-card">
+      <div class="reviewer-row">
+        <div class="reviewer-avatar" style="background:#FF5722;">MV</div>
+        <div>
+          <div class="reviewer-name">Manoj Verma</div>
+          <div class="reviewer-date">3 months ago</div>
+        </div>
+        <div class="review-stars" style="margin-left:auto;">★★★★☆</div>
+      </div>
+      <div class="review-text">Washing machine repair tha, ek hi baar mein theek ho gaya. Experienced electrician hai, kaam mein vishwas hai.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section">
+  <div class="section-title"><span></span> Contact Us</div>
+  <div class="phone-cards">
+    <div class="phone-card">
+      <div>
+        <div class="ph-num">97611 52069</div>
+        <div class="ph-label">📞 Primary Number</div>
+      </div>
+      <a href="tel:9761152069">Call</a>
+    </div>
+    <div class="phone-card">
+      <div>
+        <div class="ph-num">95806 57849</div>
+        <div class="ph-label">📞 Alternate Number</div>
+      </div>
+      <a href="tel:9580657849">Call</a>
+    </div>
+  </div>
+
+  <div class="address-card">
+    <div class="addr-icon">📍</div>
+    <div class="addr-text">
+      <strong>Kamini Electrical & Electrician</strong><br>
+      Gali Number 2, House Number 106<br>
+      Basai Chowk, Sector 9<br>
+      Gurgaon, Haryana
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 <span>Kamini Electrical & Electrician</span> · Gurgaon · All Rights Reserved
+</footer>
+
+<!-- FLOATING CALL BUTTON -->
+<a href="tel:9761152069" class="float-call">
+  📞 Call Now
+</a>
+
+</body>
+</html>
